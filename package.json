@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "host": "vite --host",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
@@ -14,7 +15,11 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@primeuix/themes": "^1.1.2",
+    "bootstrap": "^5.3.7",
     "pinia": "^3.0.1",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.3.5",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
