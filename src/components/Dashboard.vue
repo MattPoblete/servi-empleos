@@ -1,5 +1,4 @@
 <template class="dashboard">
-  <AppHeader />
   <h2 class="dashboard-title">Servicios cercanos</h2>
   <div class="profiles-list">
     <UserCard v-for="profile in profilesStore.profiles" :key="profile.id" v-bind="profile" />

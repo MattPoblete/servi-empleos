@@ -1,5 +1,8 @@
 <template>
   <header class="app-header">
+    <div class="menu-button-container">
+          <Button icon="pi pi-home menu-button" @click="$router.push('/dashboard')" style="font-size: 1.5rem" />
+    </div>
     <Searchbar />
     <DrawerComponent />  
   </header>
@@ -8,6 +11,7 @@
 <script lang="ts" setup>
 import Searchbar from './Searchbar.vue';
 import DrawerComponent from './DrawerComponent.vue';
+import { Button } from 'primevue';
 import { ref } from 'vue';
 
 </script>
@@ -25,5 +29,20 @@ import { ref } from 'vue';
 .app-header-actions {
   display: flex;
   gap: 10px;
+}
+
+.menu-button-container {
+    background-color: #fff;
+    border-radius: 25%;
+    width: 2.5rem;
+    height: 2.5rem;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    justify-content: center;
+}
+.p-button {
+    color: #464646;
+    position: relative;
+    z-index: 1;
 }
 </style>

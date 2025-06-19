@@ -4,22 +4,22 @@
                 <div class="drawer ">
                     <ul class="links-list">
                         <li>
-                            <div class="menu-item" @click="closeCallback">
+                            <RouterLink to="perfil" class="menu-item" @click="closeCallback">
                                 <i class="pi pi-user" style="margin-right: 0.5rem;"></i>
                                 Perfil
-                            </div>
+                            </RouterLink>
                         </li>
                         <li>
-                            <div class="menu-item" @click="closeCallback">
+                            <RouterLink to="guardados" class="menu-item" @click="closeCallback">
                                 <i class="pi pi-bookmark" style="margin-right: 0.5rem;"></i>
                                 Guardados
-                            </div>
+                            </RouterLink>
                         </li>
                         <li>
-                            <div class="menu-item" @click="closeCallback">
+                            <RouterLink to="mis-servicios" class="menu-item" @click="closeCallback">
                                 <i class="pi pi-briefcase" style="margin-right: 0.5rem;"></i>
                                 Mis servicios
-                            </div>
+                            </RouterLink>
                         </li>
                     </ul>
                 </div>
@@ -33,6 +33,7 @@
 <script setup>
 import { ref } from "vue";
 import { Drawer, Button } from "primevue";
+import { RouterLink } from "vue-router";
 
 const visible = ref(false);
 </script>
@@ -76,9 +77,15 @@ const visible = ref(false);
     padding: 0.5rem 1rem;
     border-radius: 8px;
     transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: inherit;
 }
 
 .menu-item:hover {
     background-color: #f0f0f0;
+}
+
+ul li {
+    list-style: none;
 }
 </style>
