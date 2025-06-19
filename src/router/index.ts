@@ -11,6 +11,11 @@ const router = createRouter({
       component: HomeView,
     },
     {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginView.vue'),
+    },
+    {
       path: '/dashboard',
       name: 'dashboard',
       component: DashboardView,
@@ -25,5 +30,19 @@ const router = createRouter({
     },
   ],
 })
+
+// Simulación de autenticación (reemplaza por tu lógica real)
+function isAuthenticated() {
+  return !!localStorage.getItem('auth');
+}
+
+const publicPages = ['home', 'login', 'about'];
+router.beforeEach((to, from, next) => {
+  if (!publicPages.includes(String(to.name)) && !isAuthenticated()) {
+    next({ name: 'login' });
+  } else {
+    next();
+  }
+});
 
 export default router

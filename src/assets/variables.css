@@ -1,0 +1,18 @@
+:root {
+  --color-primary: #007bff;
+  --color-primary-hover: #0056b3;
+  --color-secondary: #535353;
+  --color-accent: #e25555;
+  --color-bg: #f9f9f9;
+  --color-bg-alt: #f0f0f0;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-text: #333;
+  --color-border: #cccccc2f;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --border-radius: 24px;
+  --border-radius-sm: 8px;
+  --border-radius-full: 50%;
+  --transition: background-color 0.3s ease;
+  --header-height: 2.5rem;
+}

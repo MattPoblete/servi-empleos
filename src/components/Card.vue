@@ -1,7 +1,7 @@
 <script lang="ts">
 import type { Profile } from '@/types';
 import type { PropType } from 'vue';
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'Card',
@@ -22,25 +22,34 @@ export default defineComponent({
       type: Number as PropType<Profile['rating']>,
       required: true,
     },
+  },
+  setup() {
+    const liked = ref(false);
+    return { liked };
   }
 });
-
 </script>
 <template>
   <div class="card-background">
     <div class="card-header">
       <div class="profile-info">
-        <img
-          src="https://th.bing.com/th/id/R.3182dc6647576b71a2435944769d8e64?rik=chVC2CkODLAQbg&pid=ImgRaw&r=0"
-          alt="pfp"
-          class="profile-image"
-        />
-        <h2>{{ name }}</h2>
+      <img
+        src="https://th.bing.com/th/id/R.3182dc6647576b71a2435944769d8e64?rik=chVC2CkODLAQbg&pid=ImgRaw&r=0"
+        alt="pfp"
+        class="profile-image"
+      />
+      <h2>{{ name }}</h2>
       </div>
-      <div>
-        <p>
-          <span style="color: #e25555; font-size: 1.5em;">&#10084;&#65039;</span>
-        </p>
+      <div @click="liked = !liked" style="cursor: pointer;">
+      <i
+        :class="liked ? 'pi pi-bookmark-fill' : 'pi pi-bookmark'"
+        :style="{
+          marginRight: '0.5rem',
+          color: liked ? '#007bff' : '#aaa',
+          fontSize: '1.5em',
+          transition: 'color 0.2s'
+        }"
+      ></i>
       </div>
     </div>
     <h3>{{ occupation }}</h3>
@@ -61,13 +70,13 @@ export default defineComponent({
 
 <style lang="css" scoped>
 .card-background {
-  border: 1px solid #cccccc2f;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  border-radius: 24px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
   padding: 16px;
   margin: 16px 0;
-  background-color: #f9f9f9;
-  color: #000;
+  background-color: var(--color-bg);
+  color: var(--color-black);
   display: flex;
   flex-direction: column;
 }
@@ -83,21 +92,22 @@ export default defineComponent({
 }
 
 .card-background button {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-white);
   border: none;
   border-radius: 32px;
   padding: 8px 12px;
   cursor: pointer;
+  transition: var(--transition);
 }
 
 .card-background button:hover {
-  background-color: #0056b3;
+  background-color: var(--color-primary-hover);
 }
 .profile-image {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: var(--border-radius-full);
   margin-bottom: 12px;
 }
 .card-header {

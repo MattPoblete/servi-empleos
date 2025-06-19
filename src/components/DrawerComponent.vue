@@ -1,7 +1,7 @@
 <template>
         <Drawer v-model:visible="visible" :position="'right'">
             <template #container="{ closeCallback }">
-                <div class="drawer ">
+                <div class="drawer">
                     <ul class="links-list">
                         <li>
                             <RouterLink to="perfil" class="menu-item" @click="closeCallback">
@@ -22,6 +22,9 @@
                             </RouterLink>
                         </li>
                     </ul>
+                    <div class="logout-btn-container">
+                        <Button label="Logout" icon="pi pi-sign-out" class="p-button-danger logout-btn" @click="onLogout(closeCallback)" />
+                    </div>
                 </div>
             </template>
         </Drawer>
@@ -30,33 +33,40 @@
         </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from "vue";
 import { Drawer, Button } from "primevue";
-import { RouterLink } from "vue-router";
+import { RouterLink, useRouter } from "vue-router";
 
 const visible = ref(false);
+const router = useRouter();
+
+function onLogout(closeCallback: () => void) {
+  localStorage.removeItem('auth');
+  closeCallback();
+  router.push({ name: 'login' });
+}
 </script>
 
 <style scoped>
 .p-button {
-    color: #464646;
+    color: var(--color-secondary);
     position: relative;
     z-index: 1;
 }
 
 .menu-button-container {
-    background-color: #fff;
-    border-radius: 25%;
-    width: 2.5rem;
-    height: 2.5rem;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-full);
+    width: var(--header-height);
+    height: var(--header-height);
     box-shadow: var(--box-shadow);
     display: flex;
     justify-content: center;
 }
 
 .drawer {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--color-white);
     box-shadow: var(--box-shadow);
     color: var(--color-text);
     position: relative;
@@ -67,7 +77,7 @@ const visible = ref(false);
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
-    color: black;
+    color: var(--color-black);
 }
 
 .menu-item {
@@ -75,17 +85,24 @@ const visible = ref(false);
     align-items: center;
     cursor: pointer;
     padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition);
     text-decoration: none;
     color: inherit;
 }
 
 .menu-item:hover {
-    background-color: #f0f0f0;
+    background-color: var(--color-bg-alt);
 }
-
 ul li {
     list-style: none;
+}
+.logout-btn-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+.logout-btn {
+  width: 100%;
 }
 </style>

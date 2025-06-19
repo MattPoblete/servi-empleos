@@ -15,8 +15,8 @@ const profilesStore = useProfilesStore()
 <style lang="css" scoped>
   .dashboard {
     padding: 20px;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: var(--color-bg-alt);
+    color: var(--color-text);
     display: inline-block;
   }
   .profiles-list {
@@ -28,6 +28,6 @@ const profilesStore = useProfilesStore()
     text-align: center;
     margin-bottom: .5rem;
     font-size: 24px;
-    color: #535353;
+    color: var(--color-secondary);
   }
 </style>

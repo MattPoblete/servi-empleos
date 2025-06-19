@@ -10,6 +10,8 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
+    background-color: var(--color-bg);
+    color: var(--color-text);
   }
 }
 </style>

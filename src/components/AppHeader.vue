@@ -21,7 +21,7 @@ import { ref } from 'vue';
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   gap: 16px;
   margin-bottom: 0.5rem;
 }
@@ -32,16 +32,16 @@ import { ref } from 'vue';
 }
 
 .menu-button-container {
-    background-color: #fff;
-    border-radius: 25%;
-    width: 2.5rem;
-    height: 2.5rem;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-full);
+    width: var(--header-height);
+    height: var(--header-height);
     box-shadow: var(--box-shadow);
     display: flex;
     justify-content: center;
 }
 .p-button {
-    color: #464646;
+    color: var(--color-secondary);
     position: relative;
     z-index: 1;
 }

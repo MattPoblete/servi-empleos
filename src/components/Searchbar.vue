@@ -34,11 +34,11 @@ function onSearch() {
   display: flex;
   align-items: center;
   gap: 0px;
-  background-color: #fff;
+  background-color: var(--color-white);
   border-radius: 16px;
   box-shadow: var(--box-shadow);
   width: 85%;
-  height: 2.5rem;
+  height: var(--header-height);
   border: none;
 }
 
@@ -48,22 +48,23 @@ function onSearch() {
   border: none;
   border-radius: 16px 0px 0px 16px;
   height: 100%;
-  color: #333;
+  color: var(--color-text);
 }
 .search-input:focus {
   outline: none;
 }
 .search-button {
   padding: 6px 12px;
-  background-color: #fff;
-  color: #333;
+  background-color: var(--color-white);
+  color: var(--color-text);
   border: none;
   border-radius: 0px 16px 16px 0px;
   cursor: pointer;
   height: 100%;
+  transition: var(--transition);
 }
 
 .search-button:hover {
-  background-color: #f3f3f3;
+  background-color: var(--color-bg-alt);
 }
 </style>
