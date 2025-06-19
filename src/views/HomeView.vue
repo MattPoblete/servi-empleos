@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import Button from 'primevue/button'
 import Avatar from 'primevue/avatar'
-import { useRouter } from 'vue-router'
-
+import { useRouter, RouterLink } from 'vue-router'
+import placeholder from '@/assets/placeholder.png'
 const router = useRouter()
 </script>
 
@@ -15,11 +15,13 @@ const router = useRouter()
           ServiEmpleos conecta a clientes y profesionales para resolver cualquier necesidad a domicilio, fácil y rápido.
         </p>
         <div class="hero-buttons">
-          <Button label="Ir a la app" @click="router.push('/dashboard')" class="download-btn appstore" />
+          <Button label="Ir a la app" @click="router.push('/dashboard')" class="download-btn appstore" >
+            <RouterLink class="router-link" to="/dashboard">Ir a la app</RouterLink>
+          </Button>
         </div>
       </div>
       <div class="hero-mockup">
-        <img src="https://placehold.co/260x500?text=App+Mockup" alt="App Mockup" />
+        <img :src="placeholder" alt="App Mockup" />
       </div>
     </section>
 
@@ -131,6 +133,11 @@ const router = useRouter()
   min-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.router-link {
+  text-decoration: none;
+  color: inherit;
 }
 /* Hero Section */
 .hero {
