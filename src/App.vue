@@ -12,10 +12,23 @@ function checkAuth() {
 
 onMounted(checkAuth)
 window.addEventListener('storage', checkAuth)
+
+import { onUnmounted } from 'vue'
+
+onUnmounted(() => {
+  window.removeEventListener('storage', checkAuth)
+})
 </script>
 
 <template>
-  <AppHeader v-if="isLogged || route.name === 'login' ? false : true" />
+  <AppHeader v-if="
+    isLogged && 
+    route.name !== 'login' && 
+    route.name !== 'register' && 
+    route.name !== 'recover' && 
+    route.name !== 'about' &&
+    route.name !== 'home'"
+  />
   <RouterView />
 </template>
 
