@@ -29,7 +29,7 @@
             </template>
         </Drawer>
         <div class="menu-button-container">
-            <Button icon="pi pi-bars menu-button" @click="visible = !visible.value" style="font-size: 1.5rem" />
+            <Button icon="pi pi-bars menu-button" @click="visible = !visible" style="font-size: 1.5rem" />
         </div>
 </template>
 
