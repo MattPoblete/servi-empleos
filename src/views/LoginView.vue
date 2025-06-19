@@ -1,6 +1,6 @@
 <template>
   <div class="login-outer">
-    <!-- <img src="/logo.svg" alt="serviempleos logo" class="login-logo" /> -->
+    <img :src="logo" alt="Logo" class="login-logo" />
     <div class="login-container">
       <form class="login-form" @submit.prevent="onLogin">
         <label class="login-label" for="email">Correo electrónico</label>
@@ -43,6 +43,7 @@ import { useRouter } from 'vue-router'
 import InputText from 'primevue/inputtext'
 import Password from 'primevue/password'
 import Button from 'primevue/button'
+import logo from '@/assets/logo.svg'
 
 const router = useRouter()
 const email = ref('')
@@ -75,6 +76,10 @@ function onRegister() {}
 .login-logo {
   width: 260px;
   margin-bottom: 32px;
+
+}
+.login-logo path {
+    color: #226199 !important;
 }
 .login-container {
   background: #fff;
