@@ -1,19 +1,33 @@
 <template>
-    <div class="card flex justify-center">
         <Drawer v-model:visible="visible" :position="'right'">
             <template #container="{ closeCallback }">
-                <div class="drawer flex flex-col h-full">
-                    <div class="mt-auto">
-                        <hr class=" border-t border-0 border-surface-200 dark:border-surface-700" />
-                    
-                    </div>
+                <div class="drawer ">
+                    <ul class="links-list">
+                        <li>
+                            <div class="menu-item" @click="closeCallback">
+                                <i class="pi pi-user" style="margin-right: 0.5rem;"></i>
+                                Perfil
+                            </div>
+                        </li>
+                        <li>
+                            <div class="menu-item" @click="closeCallback">
+                                <i class="pi pi-bookmark" style="margin-right: 0.5rem;"></i>
+                                Guardados
+                            </div>
+                        </li>
+                        <li>
+                            <div class="menu-item" @click="closeCallback">
+                                <i class="pi pi-briefcase" style="margin-right: 0.5rem;"></i>
+                                Mis servicios
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </template>
         </Drawer>
         <div class="menu-button-container">
             <Button icon="pi pi-bars menu-button" @click="visible = !visible.value" style="font-size: 1.5rem" />
         </div>
-    </div>
 </template>
 
 <script setup>
@@ -46,5 +60,25 @@ const visible = ref(false);
     color: var(--color-text);
     position: relative;
     height: 100dvh;
+}
+
+.links-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    color: black;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-item:hover {
+    background-color: #f0f0f0;
 }
 </style>
