@@ -20,9 +20,6 @@ const router = useRouter()
           </Button>
         </div>
       </div>
-      <div class="hero-mockup">
-        <img :src="placeholder" alt="App Mockup" />
-      </div>
     </section>
 
     <section class="how-it-works">
@@ -151,6 +148,12 @@ const router = useRouter()
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   margin-bottom: 32px;
 }
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+  justify-content: center;
+}
 .hero-content h1 {
   font-size: 2.4rem;
   color: var(--color-primary, #007BFF);
@@ -184,13 +187,7 @@ const router = useRouter()
 .playstore:hover {
   background: #cc8400;
 }
-.hero-mockup img {
-  border-radius: 24px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-  width: 100%;
-  max-width: 260px;
-}
-/* How it works */
+
 .how-it-works {
   padding: 32px 0 24px 0;
   background: var(--color-bg, #f9f9f9);
