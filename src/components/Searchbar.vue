@@ -48,6 +48,7 @@ function onSearch() {
   border: none;
   border-radius: 16px 0px 0px 16px;
   height: 100%;
+  color: #333;
 }
 .search-input:focus {
   outline: none;
