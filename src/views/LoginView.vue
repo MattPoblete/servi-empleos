@@ -56,6 +56,7 @@ function onLogin() {
   passwordError.value = !password.value
   if (!emailError.value && !passwordError.value) {
     localStorage.setItem('auth', 'true')
+    window.dispatchEvent(new Event('storage'))
     router.push({ name: 'dashboard' })
   }
 }
@@ -66,7 +67,6 @@ function onRegister() {}
 <style scoped>
 .login-outer {
   min-height: 100vh;
-  background: var(--color-bg, #f9f9f9);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,7 +84,7 @@ function onRegister() {}
 .login-container {
   background: #fff;
   border-radius: 32px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 0px 16px rgba(0, 0, 0, 0.25);
   padding: 40px 32px 32px 32px;
   max-width: 420px;
   width: 100%;

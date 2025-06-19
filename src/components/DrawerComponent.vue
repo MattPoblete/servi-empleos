@@ -23,7 +23,7 @@
                         </li>
                     </ul>
                     <div class="logout-btn-container">
-                        <Button label="Logout" icon="pi pi-sign-out" class="p-button-danger logout-btn" @click="onLogout(closeCallback)" />
+                        <Button label="Cerrar sesión" icon="pi pi-sign-out" class="logout-btn" @click="onLogout(closeCallback)" />
                     </div>
                 </div>
             </template>
@@ -71,6 +71,9 @@ function onLogout(closeCallback: () => void) {
     color: var(--color-text);
     position: relative;
     height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-items: space-between;
 }
 
 .links-list {
@@ -104,5 +107,6 @@ ul li {
 }
 .logout-btn {
   width: 100%;
+  gap: 1rem;
 }
 </style>
